@@ -1,0 +1,64 @@
+$base-red : #f44336;
+
+$lighten-reds: (
+    lighten($base-red, 20%),
+    lighten($base-red, 15%),
+    lighten($base-red, 10%),
+    lighten($base-red, 5%)
+);
+$darken-reds: (
+    darken($base-red, 5%),
+    darken($base-red, 10%),
+    darken($base-red, 15%),
+    darken($base-red, 20%)
+);
+
+
+.color-box-text {
+  color: grey;
+}
+.base-color .color-box-text {
+  color: white;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+.container-1 {
+  display: flex;
+  justify-content: left;
+  align-items: center; 
+
+}
+
+.box {
+  width: 100px;;
+  height: 100px;
+  background-color: $base-red;
+  margin: 10px;
+  border-radius: 10px;
+}
+
+.box, .base-color {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.base-color {
+  width: 150px;
+}
+
+
+
+@for $i from 4 through 1 {
+  .container-1 .darken-#{$i} {
+    background-color: nth($darken-reds, $i);
+  }
+  .container-1 .lighten-#{$i} {
+    background-color: nth($lighten-reds, 5 - $i);
+  }
+
+}
